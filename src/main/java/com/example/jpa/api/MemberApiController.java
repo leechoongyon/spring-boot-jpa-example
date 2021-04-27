@@ -2,12 +2,16 @@ package com.example.jpa.api;
 
 
 import com.example.jpa.domain.Member;
+import com.example.jpa.dto.MemberRequest;
 import com.example.jpa.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -50,4 +54,19 @@ public class MemberApiController {
     public List<Member> getMembers2() {
         return memberService.getMembers2();
     }
+
+
+    /**
+     * merge, persist 테스트
+     * @param request
+     * @return
+     */
+    @PostMapping("/api/training3/members")
+    public MemberResponse saveMember(@RequestBody @Valid MemberRequest request) {
+//        Member member = Member.create(request);
+        Member member = Member.createContainsId(request);
+        Long memberId = memberService.saveMember(member);
+        return new MemberResponse(memberId);
+    }
+
 }

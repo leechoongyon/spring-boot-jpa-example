@@ -1,6 +1,7 @@
 package com.example.jpa.domain;
 
 
+import com.example.jpa.dto.MemberRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
@@ -47,5 +48,24 @@ public class Member {
         this.name = name;
         this.telNo = telNo;
         this.age = age;
+    }
+
+    public static Member create(MemberRequest request) {
+        Member member = Member.builder()
+                .name(request.getName())
+                .telNo(request.getTelNo())
+                .age(request.getAge())
+                .build();
+        return member;
+    }
+
+    public static Member createContainsId(MemberRequest request) {
+        Member member = Member.builder()
+                .id(7L)
+                .name(request.getName())
+                .telNo(request.getTelNo())
+                .age(request.getAge())
+                .build();
+        return member;
     }
 }

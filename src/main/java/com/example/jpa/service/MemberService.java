@@ -29,4 +29,9 @@ public class MemberService {
         });
         return members;
     }
+
+    public Long saveMember(Member member) {
+        Member result = memberRepository.save(member);
+        return result.getId();
+    }
 }
