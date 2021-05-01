@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class IsNewSampleWithPrimitiveId {
+public class IsNewSample {
 
     @Id
     private Long id;

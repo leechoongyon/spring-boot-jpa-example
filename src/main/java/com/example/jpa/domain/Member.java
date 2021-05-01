@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class Member {
     @Id
     @GeneratedValue
     @Column(name = "member_id")
+    @Setter
     private Long id;
 
     @Column
@@ -29,6 +31,9 @@ public class Member {
 
     @Column
     private int age;
+
+//    @Version
+//    private Long version;
 
     /** 양방향일 경우 연관관계 주인을 정해줘야 함.
      *  객체 참조는 둘인데 외래키는 한개이기에 어떤 외래키를 기준으로 수정, 삭제 할지를 결정해줘야 함. 그래야 JPA 가 그것을 보고 처리하지.
