@@ -11,13 +11,19 @@ spring:
     properties:
       hibernate:
         format_sql: true
+        generate_statistics: true
+#        jdbc:
+#          batch_size: 1000
+#        order_inserts: true
+
+
   data:
     jpa:
       repositories:
         bootstrap-mode: default
 
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.type: trace
+#logging:
+#  level:
+#    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
 

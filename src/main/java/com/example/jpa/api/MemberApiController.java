@@ -68,5 +68,4 @@ public class MemberApiController {
         Long memberId = memberService.saveMember(member);
         return new MemberResponse(memberId);
     }
-
 }
