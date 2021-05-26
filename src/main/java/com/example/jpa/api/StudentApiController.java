@@ -18,6 +18,8 @@ public class StudentApiController {
      */
     @PostMapping("/api/training1/students")
     public void saveStudents() {
+        long start = System.currentTimeMillis();
         studentService.saveStudents();
+        log.info("elapsed time : {}", System.currentTimeMillis() - start);
     }
 }

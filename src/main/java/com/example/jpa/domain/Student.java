@@ -6,10 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Getter
@@ -17,7 +14,7 @@ import javax.persistence.Id;
 public class Student {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "student_id")
     @Setter
     private Long id;
@@ -25,9 +22,21 @@ public class Student {
     @Column
     private String name;
 
+    @Column
+    private int age;
+
+    @Column
+    private String address;
+
+    @Column
+    private String etc;
+
     @Builder
-    public Student(Long id, String name) {
+    public Student(Long id, String name, int age, String address, String etc) {
         this.id = id;
         this.name = name;
+        this.age = age;
+        this.address = address;
+        this.etc = etc;
     }
 }

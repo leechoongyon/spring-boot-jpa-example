@@ -17,8 +17,12 @@ public class StudentService {
     public void saveStudents() {
         List<Student> list = new ArrayList<Student>() {
             {
-                for (int i = 0 ; i < 1000 ; i++) {
-                    add(Student.builder().name("test" + i).build());
+                for (int i = 0 ; i < 200000 ; i++) {
+                    add(Student.builder().name("test" + i)
+                            .age(20)
+                            .address("test" + i)
+                            .etc("test" + i)
+                            .build());
                 }
             }
         };
