@@ -43,6 +43,6 @@ public class StudentJdbcBatchRepository {
             }
         });
         timer.stop();
-        log.info("batchInsert -> Total time in seconds: " + timer.getTotalTimeSeconds());
+        log.info("elapsedTime : {}", timer.getTotalTimeSeconds());
     }
 }
