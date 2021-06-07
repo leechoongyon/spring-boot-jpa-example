@@ -47,12 +47,23 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Account> accounts = new ArrayList<>();
 
+    public void addAccount(String accountNo) {
+        if (this.accounts == null) {
+            this.accounts = new ArrayList<>();
+        }
+        this.accounts.add(Account.builder()
+                .accountNo(accountNo)
+                .member(this)
+                .build());
+    }
+
     @Builder
-    public Member(Long id, String name, String telNo, int age) {
+    public Member(Long id, String name, String telNo, int age, List<Account> accounts) {
         this.id = id;
         this.name = name;
         this.telNo = telNo;
         this.age = age;
+        this.accounts = accounts;
     }
 
     public static Member create(MemberRequest request) {

@@ -3,6 +3,7 @@ package com.example.jpa.domain;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -16,7 +17,7 @@ public class Account {
     @Column(name = "account_id")
     private Long id;
 
-    @Column
+    @Column @Setter
     private String accountNo;   // 계좌번호
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -31,6 +32,5 @@ public class Account {
 
     public void setMember(Member member) {
         this.member = member;
-        member.getAccounts().add(this);
     }
 }
