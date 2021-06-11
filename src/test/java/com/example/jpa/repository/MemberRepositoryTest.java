@@ -77,9 +77,12 @@ public class MemberRepositoryTest {
 
         memberRepository.save(member);
 
+        // when
         List<Member> list = memberRepository.findAll();
         List<Account> accounts = list.get(0).getAccounts();
         String accountNo = accounts.get(0).getAccountNo();
+
+        // then
         Assert.assertThat(accountNo, is("123123123"));
     }
 }
