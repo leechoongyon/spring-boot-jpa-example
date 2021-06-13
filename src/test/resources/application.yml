@@ -11,6 +11,7 @@ spring:
       ddl-auto: create
     properties:
       hibernate:
+        default_batch_fetch_size: 100
         format_sql: true
 #        generate_statistics: true
         jdbc:
@@ -23,8 +24,8 @@ spring:
       repositories:
         bootstrap-mode: default
 
-#logging:
-#  level:
-#    org.hibernate.SQL: debug
-#    org.hibernate.type: trace
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
 

@@ -45,6 +45,7 @@ public class Member {
      *  내부에서 계속 호출하면서 stackoverflow 가 발생. */
     @JsonIgnore
     @OneToMany(mappedBy = "member")
+//    @BatchSize(size = 100)
     private List<Account> accounts = new ArrayList<>();
 
     public void addAccount(String accountNo) {

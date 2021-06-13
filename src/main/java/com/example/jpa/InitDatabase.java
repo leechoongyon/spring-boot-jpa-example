@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class InitDatabase {
 
@@ -18,8 +18,8 @@ public class InitDatabase {
 
     private final AccountRepository accountRepository;
 
-    @PostConstruct
-    @Transactional
+//    @PostConstruct
+//    @Transactional
     public void initialize() {
         Member member = Member.builder()
                 .age(10)

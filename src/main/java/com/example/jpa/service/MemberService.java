@@ -25,7 +25,7 @@ public class MemberService {
     public List<Member> getMembers2() {
         List<Member> members = memberRepository.findAll();
         members.forEach(member -> {
-            log.info("member : {}, order.size : {}", member, member.getAccounts().size());
+            log.info("member : {}, account.size : {}", member, member.getAccounts().size());
         });
         return members;
     }
