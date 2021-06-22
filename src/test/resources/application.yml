@@ -1,7 +1,7 @@
 spring:
   datasource:
     url: jdbc:h2:mem:test # memory 모드로 동작. 외부 DB 붙지 않음.
-    #url: jdbc:h2:tcp://localhost/~/jpashop  # h2 서버 띄워야 함.
+    #url: jdbc:h2:tcp://localhost/~/test  # h2 서버 띄워야 함.
     username: sa
     password:
     driver-class-name: org.h2.Driver
@@ -24,8 +24,8 @@ spring:
       repositories:
         bootstrap-mode: default
 
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.type: trace
+#logging:
+#  level:
+#    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
 
