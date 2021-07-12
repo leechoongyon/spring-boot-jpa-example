@@ -28,3 +28,24 @@ logging:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
 
+---
+spring:
+  profiles: mysql-server
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/training
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.jdbc.Driver
+
+    jpa:
+      database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          default_batch_fetch_size: 100
+          format_sql: true
+          #        generate_statistics: true
+          jdbc:
+            batch_size: 1000
+          order_inserts: true

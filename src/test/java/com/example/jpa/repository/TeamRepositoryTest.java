@@ -3,7 +3,6 @@ package com.example.jpa.repository;
 
 import com.example.jpa.domain.Team;
 import com.example.jpa.domain.TeamMember;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,16 +10,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.Matchers.is;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ActiveProfiles("in-memory-server")
+@ActiveProfiles("mysql-server")
 public class TeamRepositoryTest {
 
     @Autowired

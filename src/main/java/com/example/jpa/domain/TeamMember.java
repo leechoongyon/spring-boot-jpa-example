@@ -12,19 +12,18 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class TeamMember {
     @Id @Column(name = "member_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Team team;
+//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+//    private Team team;
 
     @Builder
-    public TeamMember(Long id, String name, Team team) {
+    public TeamMember(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.team = team;
     }
 }

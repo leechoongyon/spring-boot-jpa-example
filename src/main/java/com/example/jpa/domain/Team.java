@@ -15,13 +15,14 @@ import java.util.List;
 public class Team {
 
     @Id @Column(name = "team_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String teamName;
 
-    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     List<TeamMember> list = new ArrayList<>();
 
     @Builder
