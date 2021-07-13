@@ -24,7 +24,7 @@ import static org.hamcrest.Matchers.is;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class MemberRepositoryTest {
+public class MemberRepositoryUnitTest {
 
     @Autowired
     private MemberRepository memberRepository;

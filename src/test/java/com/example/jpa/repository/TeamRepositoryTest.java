@@ -29,6 +29,7 @@ public class TeamRepositoryTest {
     private TeamMemberRepository teamMemberRepository;
 
 //    @Test
+//    @Transactional
 //    public void 단방향_OneToMany_테스트() throws Exception {
 //        // given
 //        List<TeamMember> teamMembers = new ArrayList<>();

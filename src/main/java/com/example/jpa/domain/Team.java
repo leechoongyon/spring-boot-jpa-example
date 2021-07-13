@@ -25,6 +25,7 @@ public class Team {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, orphanRemoval = true)
     // 단방향 매핑. 조인 테이블로 동작. 맵핑 테이블 생성
 //    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "team_id")
     List<TeamMember> teamMembers = new ArrayList<>();
 
     @Builder
