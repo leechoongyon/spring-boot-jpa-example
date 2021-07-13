@@ -1,29 +1,29 @@
 package com.example.jpa.domain;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@ToString
 public class TeamMember {
-    @Id @Column(name = "member_id")
+    @Id @Column(name = "team_member_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String name;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    private Team team;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "team_id")
+    private Team team;
 
     @Builder
-    public TeamMember(Long id, String name) {
+    public TeamMember(Long id, String name, Team team) {
         this.id = id;
         this.name = name;
+        this.team = team;
     }
 }
