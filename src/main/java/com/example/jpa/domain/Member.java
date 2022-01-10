@@ -30,6 +30,10 @@ public class Member {
     private String telNo;
 
     @Column
+    @ElementCollection
+    private List<String> roles = new ArrayList<>();
+
+    @Column
     private int age;
 
 //    @Version
