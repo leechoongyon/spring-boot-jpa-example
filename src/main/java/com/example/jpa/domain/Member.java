@@ -36,6 +36,10 @@ public class Member {
     @Column
     private int age;
 
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
 //    @Version
 //    private Long version;
 
@@ -62,6 +66,11 @@ public class Member {
                 .build());
     }
 
+    public void addAddress(Address address) {
+        this.address = address;
+        this.address.setMember(this);
+    }
+
     @Builder
     public Member(Long id, String name, String telNo, int age, List<Account> accounts) {
         this.id = id;
@@ -70,6 +79,7 @@ public class Member {
         this.age = age;
         this.accounts = accounts;
     }
+
 
     public static Member create(MemberRequest request) {
         Member member = Member.builder()

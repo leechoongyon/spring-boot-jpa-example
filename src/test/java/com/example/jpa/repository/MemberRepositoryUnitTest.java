@@ -1,13 +1,13 @@
 package com.example.jpa.repository;
 
 import com.example.jpa.domain.Account;
+import com.example.jpa.domain.Address;
 import com.example.jpa.domain.Member;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -28,6 +28,9 @@ public class MemberRepositoryUnitTest {
 
     @Autowired
     private MemberRepository memberRepository;
+
+    @Autowired
+    private AddressRepository addressRepository;
 
     private final int SIZE = 100;
 
@@ -85,5 +88,32 @@ public class MemberRepositoryUnitTest {
 
         // then
         Assert.assertThat(accountNo, is("123123123"));
+    }
+
+    @Test
+    public void MEMBER_ONE_TO_ONE_테스트() throws Exception {
+        Member member = Member.builder()
+                .age(10)
+                .name("test")
+                .telNo("123")
+                .build();
+
+        Address address = Address.builder()
+                .addr("주소")
+                .member(member)
+                .build();
+        // 양방향 연결
+        member.addAddress(address);
+
+        memberRepository.save(member);
+
+        addressRepository.save(address);
+
+        // when
+        List<Member> list = memberRepository.findAll();
+        Address addr = list.get(0).getAddress();
+
+        // then
+        Assert.assertThat(addr.getAddr(), is("주소"));
     }
 }
